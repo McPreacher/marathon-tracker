@@ -1,0 +1,362 @@
+:root {
+  --bg-deep: #2D241E;
+  --bg-panel: #3D322A;
+  --accent-warm: #E67E22;
+  --accent-soft: #D35400;
+  --text-main: #FDF5E6;
+  --text-dim: #A69080;
+  --star-gold: #F1C40F;
+  --border-warm: #5D4037;
+}
+
+/* ... existing styles ... */
+
+.app-header {
+  background: #1E1814;
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 2px solid var(--accent-warm);
+  color: var(--accent-warm);
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.header-actions {
+  position: relative;
+}
+
+.settings-dropdown {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: var(--bg-panel);
+  border: 1px solid var(--accent-warm);
+  border-radius: 6px;
+  width: 160px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.settings-dropdown button {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+
+.settings-dropdown button:hover {
+  background: var(--accent-warm);
+  color: white;
+}
+
+/* ... existing styles continue below ... */
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  padding: 24px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 5px 10px 5px;
+  border-bottom: 1px solid var(--border-warm);
+  min-height: 45px;
+}
+
+.header-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.column-header h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.inline-edit-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+}
+
+.header-edit-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--accent-warm);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  width: 100%;
+  outline: none;
+}
+
+.inline-add-form {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 6px;
+  border: 1px dashed var(--accent-warm);
+  margin-bottom: 10px;
+}
+
+.inline-add-form input {
+  background: #251D18;
+  border: 1px solid var(--border-warm);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.movie-grid-add {
+  display: grid;
+  grid-template-columns: 1fr 80px 40px;
+}
+
+.form-check-btn {
+  background: transparent;
+  color: var(--accent-warm);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.form-check-btn:hover {
+  color: var(--text-main);
+  transform: scale(1.2);
+}
+
+.teal-btn-sm {
+  background: transparent;
+  border: none;
+  color: var(--accent-warm);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.teal-btn-sm:hover {
+  color: var(--text-main);
+  transform: scale(1.2);
+}
+
+.icon-btn-tiny {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+}
+
+.icon-btn-tiny:hover {
+  opacity: 1;
+  color: var(--accent-warm);
+}
+
+.list-box {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-warm);
+  flex: 1;
+  overflow-y: auto;
+  border-radius: 6px;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.list-item {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.movie-item-main {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-item:hover {
+  background: rgba(230, 126, 34, 0.05);
+}
+
+.list-item.selected {
+  background: var(--accent-warm);
+  color: white;
+  font-weight: 600;
+}
+
+.list-item.watched {
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+/* Star Row for List View */
+.list-rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.mini-star-row {
+  display: flex;
+  gap: 2px;
+  background: rgba(0,0,0,0.2);
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.rating-badge {
+  font-size: 0.7rem;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text-dim);
+  border: 1px solid var(--border-warm);
+}
+
+.list-item.selected .rating-badge {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.details-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--accent-warm);
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 15px;
+  align-items: center;
+}
+
+input[type="text"], input[type="number"] {
+  background: #251D18;
+  border: 1px solid var(--border-warm);
+  color: var(--text-main);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.star-row {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.star-active {
+  filter: drop-shadow(0 0 5px var(--star-gold));
+}
+
+.delete-movie-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #C0392B;
+  color: #E74C3C;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-movie-btn:hover {
+  background: #C0392B;
+  color: white;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.del-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+}
+
+.del-btn:hover {
+  color: #ff5555;
+  opacity: 1;
+}
